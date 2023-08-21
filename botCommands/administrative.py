@@ -180,7 +180,7 @@ class Administrative(commands.Cog, name='Administrative'):
                               "html": 'Hello, we recently received a request to verify a discord account for your WatID on the server ' + messageAuthor.guild.name + '! <br>If this was you, your verification code is: <strong>' + str(
                         code) + '</strong>. <br>Please go back into discord and type !confirm (your code)<br><br>If this was not you, you can safely ignore this email.'})
                     if response.status_code != 200:
-                        raise Exception('Failed to dispatch an email to ' + watid + "@uwaterloo.ca")
+                        raise Exception('Failed to dispatch an email to ' + watid + "@uwaterloo.ca, error code " + response.status_code)
                 except Exception as e:
                     await getChannel(VERBOSE_CHANNEL_NAME, guild).send("ERROR: " + str(e))
 
